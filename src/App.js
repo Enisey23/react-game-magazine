@@ -1,0 +1,24 @@
+import { Route, Routes } from "react-router-dom";
+import { Header } from "./components/header";
+import { HomePage } from "./pages/home-page";
+import { GamePage } from "./pages/game-page";
+import { OrderPage } from "./pages/order-page";
+import { Provider } from "react-redux";
+import { store } from "./store";
+
+function App() {
+  return (
+    <Provider store={store}>
+      <div className="App">
+        <Header />
+        <Routes>
+          <Route exact path="/order" element={<OrderPage />} />
+          <Route exact path="/app/:title" element={<GamePage />} />
+          <Route exact path="/" element={<HomePage />} />
+        </Routes>
+      </div>
+    </Provider>
+  );
+}
+
+export default App;
